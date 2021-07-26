@@ -52,7 +52,7 @@ pipeline {
       steps {
         withDockerRegistry([credentialsId: "dockerhub-jen", url: ""]) {
           sh 'printenv'
-          sh 'docker build -t voyagerops/numeric-app:""$GIT_COMMIT"" .'
+          sh 'sudo docker build -t voyagerops/numeric-app:""$GIT_COMMIT"" .'
           sh 'docker push voyagerops/numeric-app:""$GIT_COMMIT""'
         }
       }
